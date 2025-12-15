@@ -1,7 +1,10 @@
 var welcomeMessage = `Hello World!` // " ' `
 
-console.log(welcomeMessage);
+console.log(welcomeMessage, 90 + 100)
 
+;(() => {
+   console.log('?')
+})();
 // to jest prosty komentarz liniowy
 
 /*
