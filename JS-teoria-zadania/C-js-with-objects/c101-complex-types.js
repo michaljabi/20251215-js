@@ -69,6 +69,16 @@ console.log(tree.branch.leaf)
 // #3 Zadanie:
 // Pokaż na konsoli wartość isRoot w obiekcie tree:
 
+console.log(tree.branch.isRoot);
+
+// deep copy
+console.log(structuredClone(tree) === tree)
+console.log(structuredClone(tree).branch === tree.branch)
+
+// shallow copy
+const treeShallow = {...tree};
+// branch obiekt w środku nie został skopiowany ! to referencje do tego samego obiektu w pamięci.
+console.log(treeShallow.branch === tree.branch)
 
 /**
  * W odróżnieniu od typów prostych (primitives).
@@ -94,3 +104,8 @@ console.log(house === otherHouse);
 otherHouse.name = 'CHANGED NAME of my home 🏢'
 
 console.log(house);
+
+
+const realOtherHouse = {...house}; // shallow copy
+
+console.log(realOtherHouse === house)

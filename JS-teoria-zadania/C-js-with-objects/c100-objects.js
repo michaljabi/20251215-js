@@ -20,8 +20,9 @@ const user = {
 	address: {
 		street: '',
 		no: 0,
-		postalCode: '00-000'
-	}
+		postalCode: '00-000',
+	},
+	history: 'none',
 };
 
 user.isAdmin = true;
