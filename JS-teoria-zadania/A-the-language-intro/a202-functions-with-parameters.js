@@ -45,6 +45,7 @@ const result = sumTwoNumbers(10, 20)
 
 
 // W momencie wywołania decyduje jakiego typu wrzucę argumenty
+// (PS. tak tego nie chcemy pisać, musimy niestety sami pilnować sie żeby wrzucać wartości typu number)
 console.log(sumTwoNumbers('a', 'b'));
 console.log(sumTwoNumbers(true, false));
 
