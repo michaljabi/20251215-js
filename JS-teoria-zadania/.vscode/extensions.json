@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "achil.vscode-javascript-repl",
+    "ritwickdey.LiveServer",
+    "vscode-icons-team.vscode-icons",
+    "christian-kohler.path-intellisense"
+  ]
+}

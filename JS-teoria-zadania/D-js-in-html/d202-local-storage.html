@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local storage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <main class="container mt-5">
+        <h1>Używanie local storage - [F5]</h1>
+        <div class="jumbotron">
+            <h4>Mój tekst, co zawsze znika: <small id="text-vanish"></small></h4>
+            <input id="vanish-input" class="form-control">
+        </div>
+        <div class="jumbotron">
+            <h4>Mój tekst, co zawsze zostaje: <small id="text-saved"></small></h4>
+            <input id="saved-input" class="form-control">
+        </div>
+    </main>
+    <script>
+	    const $vanishText = document.querySelector('#text-vanish');
+	    const $inputVanish = document.querySelector('#vanish-input');
+
+        const $savedText = document.querySelector('#text-saved');
+        const $inputSaved = document.querySelector('#saved-input');
+
+        $inputVanish.addEventListener('input', (ev) => {
+        	const text = ev.target.value;
+	        $vanishText.textContent = text;
+        })
+
+        $inputSaved.addEventListener('input', (ev) => {
+            const text = ev.target.value;
+	        $savedText.textContent = text;
+	        localStorage.setItem('myText', text);
+        })
+
+        // Odczytaj i przypisz wartość z localStorage:
+        $savedText.textContent = localStorage.getItem('myText');
+    </script>
+</body>
+</html>

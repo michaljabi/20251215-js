@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic DOM modification</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        /**
+         * Praktycznie można "namalować" na DOM wszystko co chccemy używając JavaScript
+         *
+         * Dla przykładu, możesz pokazać listę elementów <li> bazując na liście (Array) stringów:
+         * */
+
+         // Array stringów:
+         const animalList = ['parrot', 'cat', 'snake', 'dog'];
+
+         // Tworzymy element bazowy: (<ul>)
+         const ul = document.createElement('ul');
+
+         // Iterujemy (przechodzimy, wyliczamy) po całej tablicy wyciągając string po stringu
+         for(const animal of animalList) {
+             // dla każdej iteracji tworzymy element (<li>)
+             const li = document.createElement('li');
+             // wpisujemy do niego tekst
+             li.innerText = animal;
+             // dołączamy do <ul> do którego mamy referencję ul
+             ul.appendChild(li)
+         }
+
+         // Łapiemy selektor do <div> istniejącego na dokumencie (DOM)
+         const rootDiv = document.querySelector('div');
+
+         // Dołączamy <ul> z wszystkimi elementami do <div>
+         // bez tej linijki poniżej, mamy wszystko gotowe ale nie zobaczymy tego na dokumencie (na DOM)
+         rootDiv.appendChild(ul);
+         // dzieje się tak dlatego, że obiekty są już w pamięci - ale po stronie JS! Aby były dołączone do DOM,
+         // zawsze musimy je "przyczepić" do istniejącego elementu.
+
+         /**
+          Pomocne linki do dokumentacji:
+
+          https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/How_to_create_a_DOM_tree
+
+          https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+          https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+          https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
+          https://developer.mozilla.org/en-US/docs/Web/API/Element/append
+
+          * */
+    </script>
+</body>
+</html>

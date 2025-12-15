@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .blue-text {
+            color: #599aff;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+
+
+    <script>
+        const $container = document.querySelector('.container');
+        const myDiv = document.createElement('div');
+        myDiv.innerHTML = 'Hello Moto';
+        myDiv.classList.add('blue-text');
+
+        $container.appendChild(myDiv);
+    </script>
+</body>
+</html>

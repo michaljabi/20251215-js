@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🍪🥮🍥🍩</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head> 
+<body class="bg-dark">
+    <main class="container mt-5">
+        <h1 class="text-light">Obsługa cookies</h1>
+        <div class="jumbotron">
+            <h3 id="reader"></h3>
+        </div> 
+        <div class="text-right">
+            <input id="new-entry" class="form-control">
+            <div id="error-box" class="alert alert-danger text-left d-none"></div>
+            <button id="clear-btn" class="btn btn-outline-danger mt-2" >Wyczyść 🍪</button>
+            <button id="read-btn" class="btn btn-outline-success mt-2" >Odczytaj 🍪</button>
+            <button id="add-btn" class="btn btn-outline-primary mt-2 ml-5" > ➕ Dodaj</button>
+        </div>
+    </main>
+    <script>        
+        const input = document.querySelector('#new-entry');
+        const addBtn = document.querySelector('#add-btn');
+        const readBtn = document.querySelector('#read-btn');
+        const clearBtn = document.querySelector('#clear-btn');
+        
+        const reader = document.querySelector('h3#reader');
+        
+        // Odpowiednie Event Listener'y:
+         
+        addBtn.addEventListener('click', () => {
+            if(!input.value) {
+               alert('Nie wpisano wartości !') 
+            }
+            document.cookie = 'myValue=' + input.value;
+            document.cookie = 'userNickname=George; expires=' + new Date('2020-06-06');
+            input.value = '';
+        })
+        
+        readBtn.addEventListener('click', () => {
+            reader.textContent = document.cookie;
+            // if(document.cookie) {
+            //     const cookies = document.cookie.split('; ');
+            //     reader.textContent = cookies;
+            //     const entries = cookies.map(c => c.split('='));
+            //     const cookieObj = Object.fromEntries(entries);
+            //     console.log(cookieObj);
+            // }
+        })
+        
+        clearBtn.addEventListener('click', () => {
+            document.cookie = "myValue=; expires=" + new Date('2000-01-01');
+            document.cookie = "userNickname=; expires=" + new Date('2000-01-01');
+        })
+    </script>
+</body>
+</html>

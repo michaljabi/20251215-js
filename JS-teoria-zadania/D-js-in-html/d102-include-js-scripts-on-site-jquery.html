@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    
+    <div id="jqueryVersion">
+        <h1>Hello!</h1>
+    </div>
+    <hr>
+    <div id="vanillaVersion">
+        <h1>Hello!</h1>
+    </div>
+    
+    <!-- 
+    
+        Najważniejsza dla nas jest ta linia poniżej tego komentarza HTML.
+        Chodzi o to, że udowadnia ona nam, że można dołączyć do naszej strony HTML kod JS pochodzący z innych źódeł.
+        W tym wypadku jest to biblioteka JQuery.
+     
+    -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script>
+        // poniżej pokazane jest po co używa się tej biblioteki
+        // w skrócie: pozwala ona na wygodną (kompaktową i krótszą w zapisie) manipulację drzewem DOM na dokumencie HTML
+        // dawniej spełniała również rolę "standaryzacji" pomiędzy przeglądarkami (dzisiaj nie jest to już potrzbne, większość przeglądarek ma podobne API)
+
+        // wersja kodu jQuery:
+        $( document ).ready( () => {
+            
+            $('#jqueryVersion h1').html('Welcome to my page!');
+            
+            const newButton = $('<button> Click Me </button>');
+            newButton.on('click', () => {
+                alert('Witaj świecie !');
+            })
+            $('#jqueryVersion').append(newButton);
+        } )
+    </script>
+    
+    <script>
+        // poniżej jest kod, który wykonuje to samo zadanie - aby go porównać z tym powyżej
+        // wersja kodu tzw. Vanilla (czyli bez jakiejkolwiek dodatkowej biblioteki) napisalibyśmy to samo tak:
+        document.querySelector('#vanillaVersion h1').innerHTML = 'Welcome to my page !';
+        
+        const vanillaButton = document.createElement('button');
+        vanillaButton.textContent = 'Click Me';
+        vanillaButton.addEventListener('click', () => {
+            alert('Witaj świecie !');
+        })
+        document.querySelector('#vanillaVersion').appendChild(vanillaButton);
+    </script>
+</body>
+</html>

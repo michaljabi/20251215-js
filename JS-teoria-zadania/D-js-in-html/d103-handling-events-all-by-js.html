@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            margin-top: 10px;
+            border: 1px solid black;
+            padding: 15px;
+            background-color: #4fb2ff;
+            cursor: pointer;
+            font-size: 3rem;
+            border-radius: .5rem;
+        }
+        button:hover {
+            background-color: #0e48ff;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="sampleBtn"> TOGGLE </button>
+    </div>
+    <div>
+        <button id="dontClickMeBtn"> Don't click me! </button>
+    </div>
+    <script>
+
+        const btn1 = document.getElementById('sampleBtn');
+        const btn2 = document.getElementById('dontClickMeBtn');
+
+        const TEXT1 = 'Don\'t click me!';
+        const TEXT2 = 'Or should you click?';
+
+        btn1.addEventListener('click', () => {
+            if(btn2.innerText === TEXT1) {
+                btn2.innerText = TEXT2;
+            } else {
+                btn2.innerText = TEXT1
+            }
+        })
+
+        btn2.addEventListener('click', () => {
+            alert('I said - do not click me !')
+        })
+    </script>
+</body>
+</html>

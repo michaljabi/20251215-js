@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zewnętrzne biblioteki na mojej stronie</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+<body>
+    <ul id="myList">
+
+    </ul>
+
+    <script>
+        // Nasza lista danych w tablicy:
+        // Jest to tablica elementów typu sting:
+        const myThings = [
+          'ruler',
+          'pen',
+          'eraser',
+          'pencil'
+        ];
+        console.log(myThings);
+
+        // Wyciągamy ostatni element z tablicy użwając biblioteki Lodash:
+        // https://lodash.com/
+        // https://lodash.com/docs/4.17.15#last
+        const lastItem = _.last(myThings);
+
+        // "Łapiemy" referencję do listy <ul>
+        const ulList = document.getElementById('myList');
+        // Tworzymy całkiem nowy element <li>
+        const liElement = document.createElement('li');
+        // Dodajemy do niego tekst, jako ostatni item z tablicy
+        liElement.textContent = lastItem;
+
+        // Dodajemy do listy - <ul> nowy element <li>
+        ulList.appendChild(
+	        liElement
+        )
+    </script>
+</body>
+</html>

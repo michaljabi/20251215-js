@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>d107 Handling Forms - validation example</title>
+    <style>
+       [data-type$="error"] {
+           display: none;
+           color: white;
+           background-color: #e6a7a7;
+           margin: 0 3px 10px;
+           padding: 2px;
+           border: 1px solid #983a3a;
+           border-radius: 5px;
+       }
+    </style>
+</head>
+<body>
+    <form id="nameForm">
+       <div>
+           <label for="name">Imię*:</label>
+           <input id="name" name="name">
+           <div data-type="name-error"> 2</div>
+       </div>
+       <div>
+           <label for="lastName">Nazwisko*:</label>
+           <input id="lastName" name="lastName">
+           <div data-type="lastName-error"> 3</div>
+       </div>
+       <button type="submit"> Wyślij formularz </button>
+    </form>
+    <script>
+        // Zobacz:
+        // https://developer.mozilla.org/en-US/docs/Web/API/FormData
+
+        const myForm = document.querySelector('form#nameForm');
+
+        myForm.addEventListener('submit', (ev) => {
+        	ev.preventDefault();
+	        const myData = new FormData(ev.target);
+	        console.log('Imię to:', myData.get('name'));
+	        console.log('Nazwisko to:', myData.get('lastName'));
+	        return false;
+        })
+
+        myForm.addEventListener('input', (ev) => {
+	        const nameOfTheElement = ev.target.name;
+            const value = ev.target.value;
+            const errorBox = document.querySelector(`[data-type="${nameOfTheElement}-error"]`)
+	        switch (nameOfTheElement) {
+                case 'name':
+                  errorBox.style.display = value ? 'none' : 'block';
+                  errorBox.textContent = 'Pole jest wymagane!';
+                  break;
+                case 'lastName':
+                  errorBox.style.display = value ? 'none' : 'block';
+                  errorBox.textContent = 'Pole jest wymagane!';
+                  break;
+	        }
+        })
+    </script>
+</body>
+</html>

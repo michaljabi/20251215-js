@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form onsubmit="onSubmit(this); return false;">
+       <div>
+           <label for="name">Imię:</label>
+           <input id="name" name="name">
+       </div>
+       <div>
+           <label for="lastName">Nazwisko:</label>
+           <input id="lastName" name="lastName">
+       </div>
+       <button type="submit"> Wyślij formularz </button>
+    </form>
+    <script>
+        // Zobacz:
+        // https://developer.mozilla.org/en-US/docs/Web/API/FormData
+
+        function onSubmit(form) {
+            const myData = new FormData(form);
+            console.log('Imię to:', myData.get('name'));
+            console.log('Nazwisko to:', myData.get('lastName'));
+            return false;
+        }
+    </script>
+</body>
+</html>

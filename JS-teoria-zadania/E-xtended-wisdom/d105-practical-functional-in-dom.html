@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <ul id="my-list">
+
+        </ul>
+
+<script>
+    const fruits = ['apple', 'banana', 'mango', 'cherry'];
+    const $myList = document.querySelector("#my-list");
+
+    function makeAListOfLi() {
+    	return fruits.map(function(fruit) {
+    		return '<li><b>' + fruit + '</b></li>';
+        }).join('')
+    }
+
+    $myList.innerHTML = makeAListOfLi();
+</script>
+</body>
+</html>

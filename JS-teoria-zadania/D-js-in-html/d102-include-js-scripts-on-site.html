@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <h1>Hello!</h1>
+    <p></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.core.min.js"></script>
+    <script>
+        const lastElement = _.last([1, 2, 233]);
+
+        document.querySelector('p').innerHTML = 'Last element in array is: <b>'+ lastElement + '</b>';
+    </script>
+
+    <!--
+
+        Zadanie.
+
+        1. Znajdź dokumentację lodash w sieci
+        2. Znajdź metodę _.drop dla tablic
+        3. Wymyśl tablicę z elementami typu `string`
+        4. Zapisz ją w skrypcie i użyj na niej metody `_.drop` aby pokazać jak działa
+        5. Pokaż wynik (przed i po) w `console.log` lub na DOM.
+
+    -->
+</body>
+</html>

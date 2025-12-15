@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <main class="container mt-5">
+        <h1>Elementy na liście</h1>
+        <div class="jumbotron">
+            <ul id="list" class="list-group"></ul>
+        </div> 
+        <div class="text-right">
+            <input id="new-entry" class="form-control">
+            <button id="add-btn" class="btn btn-primary mt-2" >Dodaj na listę</button>
+            <button id="clear-btn" class="btn btn-danger mt-2" >Wyczyść</button>
+        </div>
+    </main>
+    <script>
+        // Załaduj dane z localStorage
+        function loadStorage() {
+            const items = localStorage.getItem('entryList');
+            let parsedItems = []
+            if(items) {
+                parsedItems = JSON.parse(items);
+            }
+            return parsedItems;
+        }
+        
+        // Zaktualizuj tablicę w localStorage
+        function saveItem(name) {
+            const items = loadStorage();
+            items.push(name);
+            const serializedItems = JSON.stringify(items);
+            localStorage.setItem('entryList', serializedItems);
+            renderList(items);
+        }
+        
+        // Zamień tekst (string) na element <li>text</li>
+        function liElement(name) {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = name;
+            return li;
+        }
+        
+        // Zamień listę danych (wpisy string) na wyświetlaną listę <ul> > <li>
+        function renderList(items = []) {
+            const list = document.querySelector('#list');
+            list.innerHTML = '';
+            for(let item of items) {
+                const li = liElement(item);
+                list.appendChild(li);
+            }
+        }
+        
+        // Ładowanie danych (spięcie logiki)
+        function loadData() {
+            const items = loadStorage();
+            renderList(items);
+        }
+        loadData();
+        
+        // Odpowiednie Event Listener'y:
+        
+        const input = document.querySelector('#new-entry')
+        document.querySelector('#add-btn').addEventListener('click', () => {
+            console.log(input)
+            saveItem(input.value);
+            input.value = '';
+        })
+        
+        document.querySelector('#clear-btn').addEventListener('click', () => {
+            localStorage.clear();
+            loadData();
+        })
+    </script>
+</body>
+</html>

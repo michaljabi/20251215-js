@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+	    // Klasyczny obiekt ajax:
+	    function onLoad () {
+		    const jsonResponse = JSON.parse(this.responseText);
+		    console.log(jsonResponse)
+	    }
+
+	    const request = new XMLHttpRequest();
+	    request.addEventListener('load', onLoad);
+	    request.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+	    request.send();
+    </script>
+
+    <script>
+	    // Nowoczesne zapytanie ajax:
+	    fetch('https://jsonplaceholder.typicode.com/todos/1')
+		    .then(response => response.json())
+		    .then(json => console.log(json))
+
+    </script>
+</body>
+</html>

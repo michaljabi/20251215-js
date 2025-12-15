@@ -1,0 +1,11 @@
+{
+  "something-str": "Hello",
+  "else-num": 223.12,
+  "other-bool": false,
+  "complex-obj": {
+    "hello": "JSON!"
+  },
+  "array": [10, 20, 30],
+  "hint": "//json nie może mieć komentarzy",
+  "hint2": "czasem trzeba escape'ować \" znaki !"
+}
