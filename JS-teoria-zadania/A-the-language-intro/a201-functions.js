@@ -24,6 +24,27 @@ sayHello()
 // Jak szybko powtórzyć te zapisy 4 razy na ekranie:
 // chcemy widzieć 4 pudełka jedno pod drugim
 
+function showMeTheBox() {
+	console.log('  ____________')
+	console.log('|  in the box  |')
+	console.log('  ------------')
+}
+
+showMeTheBox();
+showMeTheBox();
+showMeTheBox();
+showMeTheBox();
+
+/*
 console.log('  ____________')
 console.log('|  in the box  |')
 console.log('  ------------')
+
+console.log('  ____________')
+console.log('|  in the box  |')
+console.log('  ------------')
+
+console.log('  ____________')
+console.log('|  in the box  |')
+console.log('  ------------')
+*/
