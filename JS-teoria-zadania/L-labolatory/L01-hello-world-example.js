@@ -1,6 +1,8 @@
 console.log('Hello')
 console.log("World")
 
+console.log(20 + 1000 * 2);
+
 console.log('----------')
 
 /*
@@ -15,6 +17,8 @@ console.log(`Hello
 World`)
 
 console.log('----------')
+
+th
 
 console.log('Hello\nWorld')
 
