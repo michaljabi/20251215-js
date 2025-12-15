@@ -15,3 +15,37 @@ sayHello();
 
 // z argumentem
 sayHello('Michał');
+
+// Rozwiązanie z ifami + sprawdzenie typu + zaprzeczenie !== - "nie równa się":
+function sayHelloIf(name) {
+    if(typeof name !== 'undefined') {
+        console.log(`Witaj ${name}`);
+    } else {
+        console.log(`Witaj Nieznajomy`);
+    }
+}
+
+
+sayHelloIf();
+// sayHelloIf('Michał');
+
+// Jednakże w JS możemy zapisać to też tak:
+function sayHelloIf2(name) {
+    if(name) { // do if() możesz wrzucić CO CHCESZ, dosłownie co chcesz... dosłownie co chcesz (nie tylko wartość logiczną)
+        console.log(`Witaj ${name}`);
+    } else {
+        console.log(`Witaj Nieznajomy`);
+
+    
+    }
+    // console.log('nie zależnie od przypadku....')
+}
+
+sayHelloIf2();
+sayHelloIf2(null);
+sayHelloIf2('');
+sayHelloIf2(0);
+sayHelloIf2(NaN);
+
+
+sayHelloIf2("Ania");

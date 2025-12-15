@@ -24,7 +24,7 @@ let numericCondition = 0;
 
 if(numericCondition === 1) {
 	console.log('if !')
-} else if (numericCondition){
+} else if (numericCondition) {
 	console.log('else if !')
 } else {
 	console.log('else !?')
