@@ -1,4 +1,4 @@
-// @ts-check
+// // @ts-check
 
 /**
  *  Funkcje mogą być deklarowane z tzw. parametrami.
@@ -36,13 +36,12 @@ console.log(123 * 'A');
  * JSDoc https://jsdoc.app/
  * Fajne z @ts-check i dopełnia to @ts-check ale "kosztowne" w utrzymaniu
  */
-function sumTwoNumbers(a, b) {
-	return a + b
+function sumTwoNumbers(a, b, c = 0) {
+	return a + b + c
 }
 
 // Wywołanie, podaje 2 argumenty, 10 i 20:
 const result = sumTwoNumbers(10, 20)
-
 
 
 // W momencie wywołania decyduje jakiego typu wrzucę argumenty
@@ -65,12 +64,19 @@ console.log(sumTwoNumbers(10, 20));
 
 // #2 Zadanie:
 // Policz ile to 30 + 560
-
+console.log(sumTwoNumbers(30, 560));
 
 // #3 Zadanie:
 // co jeśli byśmy mieli policzyć 450 + 200 + 100 ?
+// 3.1 (dodajemy nowy parametr) - ale wtedy zauważcie, że nasza nazwa fukcji zaczyna kłamać :)
+console.log(sumTwoNumbers(450, 200, 100));
 
-
+// 3.2
+const partial = sumTwoNumbers(450, 200);
+const result2 = sumTwoNumbers(partial, 100);
+console.log(result2)
+// można też to zapisać tak:
+console.log(sumTwoNumbers(sumTwoNumbers(450, 200), 100))
 
 /* ---------------------- */
 // Funkcje po 2015 roku mogą posiadać parametry domyślne:
@@ -84,7 +90,14 @@ function greetings(user = 'Admin') {
 
 // greetings(null); to podmieni wartość user na `null`
 greetings();
+
+// z argumentami
+// to zachowa się jak "bez argumentu" !
 greetings(undefined);
+
+// z argumentami:
+greetings('Michał')
+greetings('Ania', '?') // nadmiarowe argumenty zostaną pominięte
 
 
 // #5 Zadanie:
