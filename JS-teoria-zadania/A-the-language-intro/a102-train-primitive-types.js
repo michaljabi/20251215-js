@@ -55,6 +55,9 @@ console.log(words);
 console.log(words[0]);
 console.log(words[1]);
 
+// zapis bez dodatkowej stałej
+console.log(hello + ' ' + almostWorld.split(' ')[1] );
+
 console.log(hello + ' ' + words[1]);
 console.log(hello, words[1]);
 console.log(`${hello} ${words[1]}`)
