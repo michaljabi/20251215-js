@@ -29,10 +29,18 @@ do {
 // for([ustalenie wartości początkowych]; [warunek]; [wyrażenie wykonywane na koniec każdego obrotu pętli])
 //
 
+let zOuter = 2;
 // najczęstsze wykorzystanie:
 for(let x = 10; x <= 15; x++) {
+	let z = 2;
 	console.log('count up...', x);
+	console.log(z);
+	z++;
+	zOuter++;
+	console.log(z);
+	console.log(zOuter);
 }
+// console.log(x);
 
 for(let x = 3; x >= 0; x--) {
 	console.log('count down...', x);

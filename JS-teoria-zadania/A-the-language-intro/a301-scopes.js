@@ -25,6 +25,7 @@ function mySuperCar () {
 	// b) local SCOPE of (mySuperCar)
 
 	function getName() {
+		console.log(model)
 		return 'Audi'
 	}
 
