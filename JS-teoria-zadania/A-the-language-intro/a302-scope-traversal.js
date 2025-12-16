@@ -27,6 +27,7 @@ function inception() {
 				"use strict"; // m.in. naprawia this w funkcjach które nie są podpięte pod obiekt (NIE POWINNY stosować this), dlatego this będzie undefined;
 				const myColor2 = 'diamond';
 				//global.myColor = 'bazinga!';
+				console.log(global)
 
 				console.log(this);
 				// jeżeli twoja zmiena/stała/paramert (w skrócie: Identifier) nazywa się tak samo jak inny Identifier którego chcesz użyć

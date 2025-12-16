@@ -70,3 +70,13 @@ helloWorld()
 let background_$Color = 'red'
 // numbers:
 let b3ack22groun2d_$Color2 = 'red'
+
+// Nie możemy używać tzw. reserved keywords w języku do identifiers!
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words
+/*
+let let = 2;
+let do = 2;
+let if = 2;
+let for = 2;
+*/
+let LET = 3;
