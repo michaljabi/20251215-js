@@ -1,3 +1,4 @@
+
 /**
  * Tutaj testujemy zachowanie kolejnych poziomów w przypadku zakresów (SCOPES);
  *
@@ -11,20 +12,27 @@
  *
  * */
 
-const myColor = 'red';
+//const myColor = 'red';
 
 function inception() {
-	const myColor = 'cristal';
+	//const myColor = 'cristal';
 
 	function secondDream() {
-		const myColor = 'sapphire';
+		//const myColor = 'sapphire';
 
 		function thirdDream() {
 			const myColor = 'emerald';
 
 			function fourthDream() {
-				const myColor = 'diamond';
+				"use strict"; // m.in. naprawia this w funkcjach które nie są podpięte pod obiekt (NIE POWINNY stosować this), dlatego this będzie undefined;
+				const myColor2 = 'diamond';
+				//global.myColor = 'bazinga!';
 
+				console.log(this);
+				// jeżeli twoja zmiena/stała/paramert (w skrócie: Identifier) nazywa się tak samo jak inny Identifier którego chcesz użyć
+				// z Outer Socope - to niestety.... to jest niemożliwe, bo występuje tzw. Shadowing 
+				// więć musisz zmienić nazwę tego identifiera np. tutaj na myColor2
+				console.log(myColor2);
 				console.log(myColor);
 			}
 			fourthDream();
