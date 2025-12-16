@@ -26,19 +26,7 @@ console.log(undefined + undefined);
 console.log(123 * 'A');
 
 
-// Deklaracja:
-/**
- * Funkcja do obliczania sumy 2 liczb.
- * @param {number} a - 1 liczba
- * @param {number} b - 2 liczba
- * @returns number
- * 
- * JSDoc https://jsdoc.app/
- * Fajne z @ts-check i dopełnia to @ts-check ale "kosztowne" w utrzymaniu
- */
-function sumTwoNumbers(a, b, c = 0) {
-	return a + b + c
-}
+
 
 // Wywołanie, podaje 2 argumenty, 10 i 20:
 const result = sumTwoNumbers(10, 20)
@@ -112,3 +100,20 @@ greetings('Ania', '?') // nadmiarowe argumenty zostaną pominięte
 let x = 0;
 
 x = 2
+
+
+// Można bezpiecznie przenieść ten kod niżej - dzięki hoistingowi funkcji (wykorzystanie własności)
+
+// Deklaracja:
+/**
+ * Funkcja do obliczania sumy 2 liczb.
+ * @param {number} a - 1 liczba
+ * @param {number} b - 2 liczba
+ * @returns number
+ * 
+ * JSDoc https://jsdoc.app/
+ * Fajne z @ts-check i dopełnia to @ts-check ale "kosztowne" w utrzymaniu
+ */
+function sumTwoNumbers(a, b, c = 0) {
+	return a + b + c
+}

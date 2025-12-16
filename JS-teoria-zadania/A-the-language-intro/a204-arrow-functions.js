@@ -16,22 +16,58 @@
 
 // Nowości ES6+ (po 2015r):
 // dostajemy Arrow functions:
+// Lukier składniowy (syntactic sugar) - krótszy sposób zapisu czegoś (w typadku funkcji a dokładniej wyrażenia funkcyjnego)
+// arrow function TO ZAWSZE function expression
 const newFunc = ( name ) => `Hello ${name}!`;
 const newFunc2 = name => `Hello ${name}!`;
 const newFunc3 = ( name ) => {
+
+
+
+
     return `Hello ${name}!`;
 };
+
+console.log(newFunc('Michał'))
+console.log(newFunc2('Marek'))
+console.log(newFunc3('Marzena'))
+
+const x = 133;
+x;
+
+// to niżej nie zwróci obiektu, bo myśli że {} to ciało funkcji (zakres funkcji - scope)
+const oneLinerReturingAnObjectFail = (name) => { 
+    name 
+};
+
+// Sztuczka zapisu, żeby z arrow function zwrócic obiekt
+const oneLinerReturingAnObject = (name) => ({ name });
+console.log(oneLinerReturingAnObject('Michał'))
+
+// Jeżli to wyżej nie do końca jeszcze dla Ciebie zrozumiałe (jeśli jeszcze tego nie czujesz), to pamiętaj że pod spodem to jest coś takiego:
+const returningAnObject = (name) => {
+    return {name}
+    // return {name: name} // to wyżej to srkócony zapis tego
+}
+console.log(returningAnObject('Michał'))
 
 // Przypomnienie:
 // Funkcja może zwracać inną funkcję:
 function hello() {
     return () => 'World';
+    // return () => () => () => () => () => () => () => () => () => 'World';
 }
 
 const innerFn = hello();
 // #2 Zadanie:
 // Jak wyciągnąć wynik "World" ?
 
+console.log(innerFn)
+console.log(innerFn())
+
+// przypomnienie:
+// dla interpretera NIE MA ZMACZENIA - czy mamy stałą pomocniczą czy nie
+console.log(hello()());
 
 
 

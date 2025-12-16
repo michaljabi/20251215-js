@@ -22,6 +22,7 @@ function inception() {
 
 		function thirdDream() {
 			const myColor = 'emerald';
+			fourthDream();
 
 			function fourthDream() {
 				"use strict"; // m.in. naprawia this w funkcjach które nie są podpięte pod obiekt (NIE POWINNY stosować this), dlatego this będzie undefined;
@@ -36,7 +37,7 @@ function inception() {
 				console.log(myColor2);
 				console.log(myColor);
 			}
-			fourthDream();
+			
 		}
 		thirdDream();
 	}
