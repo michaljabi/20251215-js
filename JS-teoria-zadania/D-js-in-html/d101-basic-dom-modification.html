@@ -7,6 +7,21 @@
 <body>
     <div></div>
     <script>
+        const $div = document.querySelector('div');
+
+        $div.innerHTML = `
+            <ul>
+                <li>Hello</li>
+                <li>Hello</li>
+                <li>Hello</li>
+                <li>Hello</li>
+                <li>Hello</li>
+            </ul>
+        `
+
+        // document.body.append('to', 'jest', 'przykład')
+    </script>
+    <script>
         /**
          * Praktycznie można "namalować" na DOM wszystko co chccemy używając JavaScript
          *
@@ -25,8 +40,12 @@
              const li = document.createElement('li');
              // wpisujemy do niego tekst
              li.innerText = animal;
+             li.style.cursor = 'pointer'
+             li.addEventListener('mouseover', () => {
+                li.innerText += '!';
+             })
              // dołączamy do <ul> do którego mamy referencję ul
-             ul.appendChild(li)
+             ul.append(li)
          }
 
          // Łapiemy selektor do <div> istniejącego na dokumencie (DOM)
