@@ -49,3 +49,37 @@ sayHelloIf2(NaN);
 
 
 sayHelloIf2("Ania");
+
+
+function sayHelloMustBeString(name) {
+    if(typeof name !== 'string') {
+        throw new Error('Name must be a string');
+        // return 2;
+    }
+    console.log(`Witaj ${name}`);
+}
+
+
+// console.log(sayHelloMustBeString());
+
+
+
+
+
+
+
+
+
+
+// sayHelloMustBeString('Marzena')
+try {
+    sayHelloMustBeString()
+    sayHelloMustBeString()
+    sayHelloMustBeString()
+} catch(e) {
+    console.log(e.message);
+}
+
+// dzięki użyciu try - catch, program idzie dalej
+
+console.log('Ja nie działam :(')
