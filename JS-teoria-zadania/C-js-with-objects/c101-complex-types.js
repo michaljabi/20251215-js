@@ -1,3 +1,4 @@
+// // @ts-check
 /**
  * W odróżnieniu od innych wysokopoziomowych języków,
  * pomimo swojej obiektowości, JS nie potrzebuje class
@@ -18,12 +19,28 @@ const cat = {
 	voice: function () {
 		return 'Mrauuu';
 	},
+	// po 2015, możesz pisać tak:
+	makeSomeNoice() {
+		if(this.eyes > 1) {
+			return `Mrauuu, I have got ${this.eyes} eyes`;
+			// return 'Mrauuu, I have got ' + this.eyes + ' eyes'; // to wyżej to samo co tutaj.
+		}
+		return 'Mrauuu';
+	},
 	alwaysLandsOn4Feet: true
 };
 
 // #1 Zadanie:
 // Pokaż na konsoli wynik działania metody voice
+console.log(cat.voice());
 
+console.log(cat.makeSomeNoice());
+cat.eyes = 1;
+console.log(cat.makeSomeNoice());
+cat.eyes = 3;
+console.log(cat.makeSomeNoice());
+
+console.log(cat.voice);
 
 
 
@@ -48,6 +65,33 @@ console.log(myUser['name'])
 	// a) Nie można mieć kilka tak samo nazwanych pól w obiekcie
 	// b) Jeśli wystąpi taka sytuacja to "wartość ostatniego pola wygrywa"
 
+const warderobe = {
+	name: 'My shop',
+	
+	// wniosek: ostatni wygrywa... będzie `t-shirt`
+	clothes: 'skirt',
+	clothes: 't-shirt',
+}
+
+
+console.log( { warderobe: warderobe } )
+// po 2015, mamy skrócony syntax, jeśli nazwa indentifier istnieje to będzie to nazwa property tego obiektu
+console.log( { warderobe } )
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#property_definitions
+
+// po 2015 mamy spread operator, i ta operacja to przekopowanie do innego obiektu (shallow copy)
+console.log( { ...warderobe } )
+// można takie kopiowanie zrobic też tak, tylko UWAGA, 1 argument to musi być {} pusty obiekt, i wtedy też mamy shallow copy!.
+console.log(Object.assign({}, warderobe)) 
+
+// warderobe.name = 'My OTHER SHOP';
+
+console.log(warderobe)
+
+// Mamy nową szafę, i nadpisujemy wartość name
+console.log({...warderobe, name: 'My new furniture'})
+
+console.log({name: 'My new furniture', ...warderobe})
 
 
 // Poza dynamicznym zapisem, można "dostać się" do wszystkich pól obiektu - dzięki pętli for...in
@@ -77,6 +121,8 @@ console.log(structuredClone(tree).branch === tree.branch)
 
 // shallow copy
 const treeShallow = {...tree};
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
 // branch obiekt w środku nie został skopiowany ! to referencje do tego samego obiektu w pamięci.
 console.log(treeShallow.branch === tree.branch)
 
