@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Tytuł strony</title>
+    <meta charset="UTF-8" />
+    <title>Zmieniam tytuł</title>
+    <meta name="description" content="Opis storny" />
+    <!-- 
+        DOC do HTML: 
+        - https://developer.mozilla.org/en-US/docs/Web/HTML
+
+        DOC do emmet.io (!):
+        - https://emmet.io/
+
+        Emmet używa selectorów CSS, więc to fajnie znać:
+        - https://developer.mozilla.org/en-US/docs/Web/CSS
+    -->
+
 </head>
 <body>
     
@@ -31,10 +43,26 @@
         console.warn('Uwaga za chwile kolejne zadanie!')
     </script>
     <p style="text-align: center; margin: 20px">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto cum cupiditate doloremque, ea eaque eveniet explicabo fugit harum impedit incidunt labore nisi odit quibusdam quidem reiciendis reprehenderit voluptate voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        <span> Ab architecto </span> cum cupiditate doloremque, 
+        ea eaque eveniet explicabo fugit harum impedit 
+        incidunt labore nisi odit quibusdam quidem reiciendis 
+        reprehenderit voluptate voluptatibus!
     </p>
+    <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          <div>można... i to działa (nie ma buga z p)</div>
+          
+          <div>
+            <p><span>Hello world</span></p>
+          </div>
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit incidunt autem, amet a accusantium quasi illo voluptatum voluptatem architecto exercitationem dignissimos! Voluptatem numquam alias sint animi ratione, voluptatibus repellendus! Hic!
+    </div>
     <script>
         // document.body.innerHTML = '';
     </script>
 </body>
 </html>
+
+
