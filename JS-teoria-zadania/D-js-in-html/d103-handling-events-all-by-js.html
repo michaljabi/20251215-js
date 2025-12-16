@@ -34,13 +34,12 @@
         const TEXT1 = 'Don\'t click me!';
         const TEXT2 = 'Or should you click?';
 
-        btn1.addEventListener('click', () => {
-            if(btn2.innerText === TEXT1) {
-                btn2.innerText = TEXT2;
-            } else {
-                btn2.innerText = TEXT1
-            }
-        })
+        // CDN. a205
+        function handler() {
+            console.log('Hello from handler!')
+        }
+
+        btn1.addEventListener('click', handler)
 
         btn2.addEventListener('click', () => {
             alert('I said - do not click me !')
