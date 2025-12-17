@@ -30,7 +30,7 @@
             </label>
         </nav>
     </main>
-    <script>
+    <script type="module">
         /*
         * Nie oczekuję od Ciebie zrozumienia żadnego z zapisów w tym kodzie,
          * cel jest prosty, pokazać DLACZEGO,
@@ -48,6 +48,9 @@
          *
          * Nie wahaj się "zhakować" tego przykładu na swój sposób 😆
         * */
+        
+        import { addFruitToList } from './add-fruits.js';
+        
         const insertPanel = document.querySelector('[data-insert-panel]');
         const fruitInput = document.querySelector('[data-fruit]');
 
@@ -64,21 +67,12 @@
             }
         })
 
-        function addFruitToList(name = '') {
-		  if(!name.trim()) {
-			return;
-          }
-          const panelBlockA = makePanelBlockAnchor(name);
-          insertPanel.before(panelBlockA);
-          fruitInput.value = '';
-        }
+        // przenieś kod do innego pliku i wyexportuj addFruitToList
+        // potem zaimportuj tutaj!
 
-        function makePanelBlockAnchor(text = '', classList = 'panel-block p-4 is-size-4') {
-            const anchor = document.createElement('a');
-            anchor.className = classList;
-            anchor.textContent = text;
-            return anchor;
-        }
+        
+
+        
 
         // document.body.append(makePanelBlockAnchor('TEST', ''))
     </script>
