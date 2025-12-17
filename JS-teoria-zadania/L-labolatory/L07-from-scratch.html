@@ -7,7 +7,10 @@
 </head>
 <body>
     <h1></h1>
-    <script>
+    <!-- tym type="module" naprawiam sobie odniesienie do h1 w pliku L07-code-from.js -->
+    <script type="module" >
+        // co więcej, mogę teraz zaimportować ten plik tak:
+        import './L07-code-from.js';
         // console.log('!');
         const h1 = document.querySelector('h1')
         // console.log(h1)
@@ -15,6 +18,7 @@
             h1.innerText = 'Happy holidays!'
         }
     </script>
-    <script src="./L07-code-from.js"></script>
+    <!-- Ponieważ korzystam z nowoczesnej składni import / export nie importuje już tego pliku tak jak poniżej -->
+    <!-- <script src="./L07-code-from.js"></script> -->
 </body>
 </html>
