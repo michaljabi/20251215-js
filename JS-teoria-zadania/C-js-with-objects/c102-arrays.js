@@ -13,16 +13,30 @@
  * */
 
 // Przykład tablicy:
+// dla C#, pamiętaj że Array to typ generyczny w TS, co onacza że wyglą tak Array<T> => T[] (zapis w TS)
+// co zonacza że  wmomencie deklarowania tablicy (przypisania) TS jest w stanie określić dopiero co tablica przechowuje
+// TS przedstawia to tak: zamiast Array<string> to masz string[] (choć obydwa zapisy są poprawne)
+// jeszcze dla C# i pozostałychL
+// [] to jest to samo co new Array()
+// to znaczy że [] - jest literał tablicowy (analogicznie {} to literał obiektowy )
 const mutableArray = [ 'a', 'b', 'c', 'd' ];
 
 // Sprawdzenie długości tablicy
 console.log(mutableArray.length);
 
 // Odczytanie elementu tablicy pod konkretnym indeksem:
-console.log(mutableArray[2]);
+console.log(mutableArray[0]);
+console.log(mutableArray[4]);
+console.log(mutableArray[-1]);
+// można po 2024 metodą .at()
+console.log(mutableArray.at(-1));
+console.log(mutableArray[1]);
 
 // Modyfikacja elementu tablicy pod konkretnym indeksem:
 mutableArray[2] = 'x'
+
+mutableArray.push('z', 'y', 'o', 'p' );
+mutableArray.unshift('!')
 
 // Jest to kolekcja po której można iterować
 // Za równo pętlą for
@@ -35,8 +49,9 @@ for(let element of mutableArray) {
 	console.log(element);
 }
 // jak i wbudowaną metodą forEach
-mutableArray.forEach(function ( element ) {
+mutableArray.forEach( ( element, idx ) => {
 	console.log(element)
+	console.log(idx)
 })
 
 // Metody mutujące tablicę (zmieniające jej składniki):
@@ -44,12 +59,20 @@ mutableArray.forEach(function ( element ) {
 
 // dodanie element(u/ów) na koniec:
 mutableArray.push( 'e', 'f', 'g' );
+console.log(mutableArray);
 
 // "wyjęcie" ostatniego elementu:
 mutableArray.pop();
 
+console.log(mutableArray.slice(5)) 
+
+// mutacja tablic w środku
+console.log(mutableArray) 
+console.log(mutableArray.splice(4, 1)) 
+
 // dodanie element(u/ów) na początek:
 mutableArray.unshift( 'x', 'y' );
+console.log(mutableArray)
 
 // "wyjęcie" pierwszego elementu:
 const first = mutableArray.shift();
