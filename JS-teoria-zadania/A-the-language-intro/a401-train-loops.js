@@ -12,6 +12,8 @@ for(let x = 1; x <= 10; x++) {
 // #2 Zadanie
 // Pokaż na konsoli ciąg liczb 1 do 10 jedna obok drugiej:
 // 1 2 3 4 5 6 7 8 9 10
+/*
+// make it work:
 let oneLine = '';
 for(let x = 1; x <= 10; x++) {
     if(x === 1) {
@@ -22,3 +24,10 @@ for(let x = 1; x <= 10; x++) {
 }
 // oneLine = oneLine.trim();
 console.log(oneLine);
+*/
+
+const collect = []
+for(let x = 1; x <= 10; x++) {
+    collect.push(x);
+}
+console.log(collect.join(' '))
