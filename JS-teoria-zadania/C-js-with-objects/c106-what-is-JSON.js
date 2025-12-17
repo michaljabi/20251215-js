@@ -24,6 +24,8 @@ const myJSON = {
 
 // Poza tym, string jest opakowywany w cudzysłowy, boolean i number - nie muszą.
 // Cały ten zapis daje pewną elastyczność, przechowywania danych jako tekstowe, przykładowo:
+console.log("\"")
+console.log('"')
 
 const myJSONString = '{"name":"Michał","lastName":"Kowalski","age":22}';
 
@@ -49,14 +51,56 @@ const superObject = {
 	age: 56,
 	isAMember: true,
 	birth: new Date(1963, 10, 1),
-	shoutHello: function() {
-			console.log('Hello !')
+	shoutHello() {
+		console.log('Hello !')
+	},
+
+	// Circular structure - imitacja:
+	/* 
+	get unwrap() {
+		return this
 	}
+	*/
+	// myNumber: 29n
 }
 
-// Serializacja do JSON:
-const jsonData = JSON.stringify(superObject);
+console.log(superObject.unwrap);
 
+// Serializacja do JSON:
+try {
+	const jsonData = JSON.stringify(superObject, null, 2);
+	console.log(typeof jsonData);
+	console.log(jsonData);
+} catch (e) {
+	console.log(e.message)
+}
+
+// Mam JSON a chce mieć JS:
+const addressStr = `
+{
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    }
+`
+
+console.log(typeof addressStr);
+
+const address = JSON.parse(addressStr)
+
+console.log(typeof address);
+console.log(address)
+console.log(address.geo)
+console.log(address.zipcode)
+
+// Przykład zastosowania JSON:
+// komunikacja z back-end:
+// https://jsonplaceholder.typicode.com/users
 
 // Deserializacja:
 // const myReturnedObject = JSON.parse(jsonData)
