@@ -10,6 +10,20 @@ for(let x = 0; x < movie.length; x++) {
 	console.log(movie[x])
 }
 
+// do kolekcji iterowalnych (string, Array, Map, Set...)
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+for(const letter of movie) {
+	console.log(letter)
+}
+
+// do obiektów, żeby dobrac się do kluczy (properties)
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+const user = { name: 'Michał', isAdmin: true };
+for(const key in user) {
+	console.log(key)
+}
+
+
 /**
  * W ES6 dostajemy wygodniejszą pętle do przeliczania dowolnej kolekcji iterowalnej
  * for...of

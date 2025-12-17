@@ -10,7 +10,7 @@
  * */
 
 // pętla while - obraca się dopóty, dopóki warunek logiczny, który sprawdza - będzie obliczał się do wartości: true
-let flag = true;
+let flag = false;
 while ( flag ) {
 	console.log('Hello once')
 	flag = false;
@@ -31,16 +31,24 @@ do {
 
 let zOuter = 2;
 // najczęstsze wykorzystanie:
-for(let x = 10; x <= 15; x++) {
+for(let x = 10, y = 9; x <= 15; x++, y+=20) {
 	let z = 2;
 	console.log('count up...', x);
 	console.log(z);
 	z++;
 	zOuter++;
+	if(x === 12) {
+		// break; // zatrzymuje pętle niezależnie od sprawdzanych warunków w srdoku for;
+		continue; // NIE zatrzymuje pętli, ale nie wywoła tego co poniżej dla tego warunku (x === 12)
+	}
+	console.log(x);
+
 	console.log(z);
 	console.log(zOuter);
+
+	console.log(y);
 }
-// console.log(x);
+//console.log(x);
 
 for(let x = 3; x >= 0; x--) {
 	console.log('count down...', x);
