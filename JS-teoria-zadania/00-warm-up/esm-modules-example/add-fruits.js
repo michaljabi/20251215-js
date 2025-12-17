@@ -1,15 +1,14 @@
-// impona samej górze pliku
-
-const insertPanel = document.querySelector('[data-insert-panel]');
-const fruitInput = document.querySelector('[data-fruit]');
+// import na samej górze pliku
+// import { insertPanel, fruitInput } from './selectors.js'
+import sel from './selectors.js'
 
 export function addFruitToList(name = '') {
     if(!name.trim()) {
         return;
     }
     const panelBlockA = makePanelBlockAnchor(name);
-    insertPanel.before(panelBlockA);
-    fruitInput.value = '';
+    sel.insertPanel.before(panelBlockA);
+    sel.fruitInput.value = '';
 }
 
 function makePanelBlockAnchor(text = '', classList = 'panel-block p-4 is-size-4') {

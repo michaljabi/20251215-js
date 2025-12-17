@@ -50,9 +50,8 @@
         * */
         
         import { addFruitToList } from './add-fruits.js';
-        
-        const insertPanel = document.querySelector('[data-insert-panel]');
-        const fruitInput = document.querySelector('[data-fruit]');
+        //import { fruitInput } from './selectors.js'
+        import sel from './selectors.js'
 
         const intialData = ['jabłko', 'pomarańcz', 'mandarynka'];
 
@@ -60,10 +59,10 @@
             addFruitToList(fruit);
         }
 
-        fruitInput.addEventListener('keydown', (event) => {
+        sel.fruitInput.addEventListener('keydown', (event) => {
             console.log(event.key)
             if(event.key === 'Enter') {
-               addFruitToList(fruitInput.value);
+               addFruitToList(sel.fruitInput.value);
             }
         })
 
