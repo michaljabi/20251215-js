@@ -40,9 +40,10 @@ mutableArray.unshift('!')
 
 // Jest to kolekcja po której można iterować
 // Za równo pętlą for
-for(let x = 0; x < mutableArray.length; x++) {
+for(let idx = 0; idx < mutableArray.length; idx++) {
 	// wtedy odnosimy się do index'ów tablicy:
-	console.log(mutableArray[x]);
+	console.log(mutableArray[idx]);
+	console.log(idx);
 }
 // jak i składnią pętli "for of"
 for(let element of mutableArray) {
@@ -52,6 +53,15 @@ for(let element of mutableArray) {
 mutableArray.forEach( ( element, idx ) => {
 	console.log(element)
 	console.log(idx)
+})
+
+mutableArray.forEach( ( element ) => {
+	console.log(element)
+})
+
+
+mutableArray.forEach( () => {
+	console.log(' chce wywoła się tyle razy ile elmentów w tablicy, ale nie iteresują mnie te elementy')
 })
 
 // Metody mutujące tablicę (zmieniające jej składniki):
