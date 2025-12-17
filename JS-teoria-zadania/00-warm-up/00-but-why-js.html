@@ -18,10 +18,9 @@
     </hero>
     <main class="container pt-6">
         <nav class="panel is-primary">
-            <p class="panel-heading" >
+            <p class="panel-heading" data-auto-id="45667">
                 Lista owoców
             </p>
-            <a class="panel-block p-4 is-size-4">jabłko</a>
             <label class="panel-block" data-insert-panel>
                 <input data-fruit
                        class="input is-primary"
@@ -52,13 +51,20 @@
         const insertPanel = document.querySelector('[data-insert-panel]');
         const fruitInput = document.querySelector('[data-fruit]');
 
+        const intialData = ['jabłko', 'pomarańcz', 'mandarynka'];
+
+        for(const fruit of intialData) {
+            addFruitToList(fruit);
+        }
+
         fruitInput.addEventListener('keydown', (event) => {
+            console.log(event.key)
             if(event.key === 'Enter') {
                addFruitToList(fruitInput.value);
             }
         })
 
-        function addFruitToList(name) {
+        function addFruitToList(name = '') {
 		  if(!name.trim()) {
 			return;
           }
@@ -67,12 +73,14 @@
           fruitInput.value = '';
         }
 
-        function makePanelBlockAnchor(text = '') {
+        function makePanelBlockAnchor(text = '', classList = 'panel-block p-4 is-size-4') {
             const anchor = document.createElement('a');
-            anchor.className = 'panel-block p-4 is-size-4';
+            anchor.className = classList;
             anchor.textContent = text;
             return anchor;
         }
+
+        // document.body.append(makePanelBlockAnchor('TEST', ''))
     </script>
 </body>
 </html>
