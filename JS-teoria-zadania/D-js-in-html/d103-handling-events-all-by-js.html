@@ -17,6 +17,9 @@
             background-color: #0e48ff;
             color: #ffffff;
         }
+        #changeToggle {
+            background-color: aquamarine;
+        }
     </style>
 </head>
 <body>
@@ -26,10 +29,14 @@
     <div>
         <button id="dontClickMeBtn"> Don't click me! </button>
     </div>
+    <button id="changeToggle"> Zmień toggle </button>
     <script>
 
-        const btn1 = document.getElementById('sampleBtn');
+        // const btn1 = document.getElementById('sampleBtn');
+        const btn1 = document.querySelector('#sampleBtn');
         const btn2 = document.getElementById('dontClickMeBtn');
+
+        const btnChangeToggle = document.querySelector('#changeToggle');
 
         const TEXT1 = 'Don\'t click me!';
         const TEXT2 = 'Or should you click?';
@@ -43,6 +50,10 @@
 
         btn2.addEventListener('click', () => {
             alert('I said - do not click me !')
+        })
+
+        btnChangeToggle.addEventListener('click', () => {
+            btn1.textContent = 'Happy holidays'
         })
     </script>
 </body>
